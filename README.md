@@ -1,4 +1,18 @@
-# Source codes for estimating the evolution of gene family in Decapoda
+# Crayfish CAFE Analysis
+Source codes for estimating the evolution of gene family in Decapoda including *Procambarus clakii* .
+
+## Requirements
+- Unix-like environment
+  - Development env.: MacOS Ventura 13
+  - Production env.: [Nig supercomputer](https://sc.ddbj.nig.ac.jp/en/) CentOS 7
+- R (>=4.2.0)
+- python3 (>=3.9.0)
+- blast
+- [OrthoFinder](https://github.com/davidemms/OrthoFinder)
+- [CAFE5](https://github.com/hahnlab/CAFE5)
+
+
+## `src/`
 - `blast_array.sh`
 :	conduct `blastp` against the fly genes
 
@@ -13,6 +27,9 @@
 
 - `aln_trim_iqtree.sh`
 :	align the sequences, trim the gaps, and infer the ML tree using the single copy orthologs
+
+- `phylo.R`
+: prepare ultrametric tree for CAFE analysis
 
 - `make_nexus.py`
 :	write nexus file used in `iqtree`
