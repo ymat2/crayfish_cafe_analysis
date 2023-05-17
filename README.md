@@ -7,9 +7,7 @@ Source codes for estimating the evolution of gene family in Decapoda including *
   - Production env.: [Nig supercomputer](https://sc.ddbj.nig.ac.jp/en/) CentOS 7
 - R (>=4.2.0)
 - python3 (>=3.9.0)
-- blast
-- [OrthoFinder](https://github.com/davidemms/OrthoFinder)
-- [CAFE5](https://github.com/hahnlab/CAFE5)
+- BLAST, [MAFFT](https://mafft.cbrc.jp/alignment/software/), [trimAl](http://trimal.cgenomics.org/trimal), [iqtree](http://www.iqtree.org), [CAFE5](https://github.com/hahnlab/CAFE5)
 
 
 ## `src/`
