@@ -9,7 +9,7 @@ def main():
 					sp_name = [shortName(sp) for sp in line.split("\t")[1:]]
 					fout.write("Description\tID\t"+"\t".join(sp_name)+"\n")
 				else:
-					if over100(line) or allEqual(line):
+					if over100(line) or largeVar(line) or allEqual(line):
 						if isSCO(line):
 							sco.append(line.split("\t")[0])
 							continue
@@ -35,6 +35,14 @@ def over100(line):
 		return False
 	else:
 		return True
+
+def largeVar(line):
+	cmax = max(list(map(int, line.rstrip("\n").split("\t")[1:])))
+	cmin = min(list(map(int, line.rstrip("\n").split("\t")[1:])))
+	if cmax - cmin > 50:
+		return True
+	else:
+		return False
 
 def allEqual(line):
 	if len(set(line.rstrip("\n").split("\t")[1:])) == 1:

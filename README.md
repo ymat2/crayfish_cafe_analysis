@@ -40,11 +40,12 @@ Source codes for estimating the evolution of gene family in Decapoda including *
 :	conduct `CAFE5` analysis
 
 ```bash
-mkdir -p blst out tree/sco
+mkdir -p blst out cafe5 tree/sco
 qsub blast_array.sh
 python3 src/blast2table.py -i blst -o out
 python3 src/filter_table.py
 python3 src/OG_separater.py -f seq -l out/SingleCopyOrthologs.txt -p tree/sco
 qsub src/aln_trim_iqtree.sh
-Rscript src/phylo.R ?
+Rscript src/phylo.R
+qsub src/run_cafe5.sh
 ```
