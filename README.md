@@ -7,7 +7,11 @@ Source codes for estimating the evolution of gene family in Decapoda including *
   - Production env.: [Nig supercomputer](https://sc.ddbj.nig.ac.jp/en/) CentOS 7
 - R (>=4.2.0)
 - python3 (>=3.9.0)
-- BLAST, [MAFFT](https://mafft.cbrc.jp/alignment/software/), [trimAl](http://trimal.cgenomics.org/trimal), [iqtree](http://www.iqtree.org), [CAFE5](https://github.com/hahnlab/CAFE5)
+- BLAST
+- [MAFFT](https://mafft.cbrc.jp/alignment/software/) (>=7.0)
+- [trimAl](http://trimal.cgenomics.org/trimal) (>=1.2.0)
+- [iqtree](http://www.iqtree.org) (>=1.6.12)
+- [CAFE5](https://github.com/hahnlab/CAFE5)
 
 
 ## `src/`
@@ -34,3 +38,13 @@ Source codes for estimating the evolution of gene family in Decapoda including *
 
 - `run_cafe5.sh`
 :	conduct `CAFE5` analysis
+
+```bash
+mkdir -p blst out tree/sco
+qsub blast_array.sh
+python3 src/blast2table.py -i blst -o out
+python3 src/filter_table.py
+python3 src/OG_separater.py -f seq -l out/SingleCopyOrthologs.txt -p tree/sco
+qsub src/aln_trim_iqtree.sh
+Rscript src/phylo.R ?
+```

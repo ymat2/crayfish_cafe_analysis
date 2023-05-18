@@ -12,5 +12,5 @@ awk '{print($1)}' out/SingleCopyOrthologs.txt | while read x; do
 	singularity exec /usr/local/biotools/t/trimal:1.4.1--hc9558a2_4 trimal -in tree/sco/$x.maf.fa -out tree/sco/$x.maf.trimed.fa -nogaps
 done
 
-python3 src/make_nexus.py tree/run.nex 50
-singularity exec /usr/local/biotools/i/iqtree:1.6.9--he941832_0 iqtree -sp tree/run.nex -nt 4 -bb 1000
+python3 src/make_nexus.py -a tree/sco -o tree/run.nex  -l 50
+singularity exec /usr/local/biotools/i/iqtree:1.6.12--he513fc3_0 iqtree -sp tree/run.nex -nt 4 -bb 1000

@@ -1,10 +1,13 @@
+if (!require("tidyverse", quietly = TRUE)) install.packages("tidyverse")
+if (!require("phytools", quietly = TRUE)) install.packages("phytools")
+
 library(conflicted)
 library(tidyverse)
 library(phytools)
 
 
 # with_P_vir -------------------------------------------------------------------
-tr = ape::read.tree("results_iqtree/run.nex.treefile")
+tr = ape::read.tree("tree/run.nex.treefile")
 
 mrca = ape::getMRCA(tr, tip=c("fly32", "Pcla"))
 tr_ultra = ape::chronopl(
@@ -23,13 +26,6 @@ tr_ultra = ape::chronopl(
 is.ultrametric(tr_ultra)
 
 
-# without_P_vir ----------------------------------------------------------------
-tr_no_pvir = ape::drop.tip(tr, "Pvir")
-tr_ultra_no_pvir = ape::drop.tip(tr_ultra, "Pvir")
-
-
 # write_newick -----------------------------------------------------------------
-ape::write.tree(tr, file="results_iqtree/iqtree.nwk")
-ape::write.tree(tre_no_pvir, file="results_iqtree/iqtree_noPvir.nwk")
-ape::write.tree(tr_ultra, file="results_iqtree/ultrametric_iqtree.nwk")
-ape::write.tree(tr_ultra_no_pvir, file="results_iqtree/ultrametric_iqtree_noPvir.nwk")
+ape::write.tree(tr, file="tree/iqtree.nwk")
+ape::write.tree(tr_ultra, file="cafe5/ultrametric_iqtree.nwk")
