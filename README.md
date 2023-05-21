@@ -39,6 +39,8 @@ Source codes for estimating the evolution of gene family in Decapoda including *
 - `run_cafe5.sh`
 :	conduct `CAFE5` analysis
 
+
+## pipeline
 ```bash
 mkdir -p blst out cafe5 tree/sco
 qsub blast_array.sh

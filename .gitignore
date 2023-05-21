@@ -7,6 +7,11 @@
 !/README.md
 !/src/
 !/src/**
-# !/test/
-# !/test/**
-.Rproj.user
+!/tree_all/
+
+#### ignore all files in /tree_all/ ####
+/tree_all/*
+#### except following files ####
+!/tree_all/src/
+!/tree_all/src/**
+!/tree_all/README.md
