@@ -11,4 +11,4 @@ tr = ape::read.tree("tree_all/run.nex.treefile") |>
   ape::drop.tip("procambaru")
 
 # write_newick -----------------------------------------------------------------
-ape::write.tree(tr, file="tree/iqtree_all.nwk")
+ape::write.tree(tr, file="tree_all/out/iqtree_all.nwk")
